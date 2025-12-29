@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESS-EPAS | Ekonomska škola Šibenik</title>
+    <style>
+        /* DEFINICIJA BOJA (Inspirirano EU i ESS vizualima) */
+        :root {
+            --eu-blue: #003399;
+            --eu-yellow: #ffcc00;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-gray: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background-color: var(--white); }
+        html { scroll-behavior: smooth; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* NAVIGACIJA */
+        nav {
+            background: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--eu-blue); display: flex; align-items: center; }
+        .logo span { color: var(--eu-yellow); margin-left: 5px; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--eu-blue); }
+
+        /* HERO SEKCIJA */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,51,153,0.9), rgba(0,51,153,0.7)), 
+                        url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; opacity: 0.9; }
+        .btn { 
+            background: var(--eu-yellow); 
+            color: var(--eu-blue); 
+            padding: 12px 35px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            display: inline-block;
+        }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255,204,0,0.4); }
+
+        /* SEKCIJE OPĆENITO */
+        section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--eu-blue); position: relative; padding-bottom: 15px; }
+        .section-title h2::after {
+            content: ''; width: 60px; height: 4px; background: var(--eu-yellow);
+            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+        }
+
+        /* PROJEKTI (KARTICE) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card-img { height: 200px; background: #eee; }
+        .card-body { padding: 25px; }
+        .card-tag { color: var(--eu-blue); font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+        .card h3 { margin: 10px 0; font-size: 1.3rem; }
+        .card p { color: var(--text-light); font-size: 0.95rem; }
+
+        /* KONTAKT I FOOTER */
+        .contact-box { background: var(--bg-gray); padding: 50px; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        footer { background: var(--eu-blue); color: var(--white); padding: 50px 0; text-align: center; }
+        .footer-logo { font-size: 1.5rem; margin-bottom: 20px; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .contact-box { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">ESS<span>EPAS</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Početna</a></li>
+                <li><a href="#o-projektu">O projektu</a></li>
+                <li><a href="#vijesti">Vijesti</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1>Škola ambasador Europskog parlamenta</h1>
+            <p>Ekonomska škola Šibenik aktivno sudjeluje u promociji europskih vrijednosti i razvoju mladih lidera kroz Erasmus+ i EPAS programe.</p>
+            <a href="#vijesti" class="btn">Pogledaj aktivnosti</a>
+        </div>
+    </section>
+
+    <section id="o-projektu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Što je EPAS?</h2>
+            </div>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Program "Škola ambasador Europskog parlamenta" (EPAS) usmjeren je na podizanje svijesti mladih o Europi i europskoj parlamentarnoj demokraciji. Naša škola već godinama ponosno nosi titulu škole ambasadora.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vijesti" style="background: var(--bg-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Novosti i Događanja</h2>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://picsum.photos/400/250?random=1" alt="Erasmus" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">Erasmus+</span>
+                        <h3>Mobilnost u Italiji</h3>
+                        <p>Naši junior ambasadori proveli su tjedan dana u razmjeni znanja s kolegama iz cijele Europe...</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/400/250?random=2" alt="EPAS" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">Aktivnost</span>
+                        <h3>Dan Europe u Šibeniku</h3>
+                        <p>Obilježili smo Dan Europe prigodnim kvizom i radionicama o ljudskim pravima u EU.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/400/250?random=3" alt="Priznanje" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">Priznanje</span>
+                        <h3>EITA 2024 Nagrada</h3>
+                        <p>Ponosni smo dobitnici Europske nagrade za inovativno poučavanje za naš projekt digitalne pismenosti.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontakt</h2>
+            </div>
+            <div class="contact-box">
+                <div>
+                    <h3>Kontaktirajte nas</h3>
+                    <p style="margin: 20px 0;">Za sva pitanja o EPAS programu ili Erasmus+ projektima, slobodno nam se obratite.</p>
+                    <p>📍 Put Gimnazije 64, 22 000 Šibenik</p>
+                    <p>📧 essib@ss-ekonomska-si.skole.hr</p>
+                    <p>📞 +385 22 212 845</p>
+                </div>
+                <form>
+                    <input type="text" placeholder="Ime i prezime">
+                    <input type="email" placeholder="E-mail adresa">
+                    <textarea rows="4" placeholder="Vaša poruka"></textarea>
+                    <button type="submit" class="btn" style="border:none; cursor:pointer; width:100%;">Pošalji</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">ESS-EPAS Šibenik</div>
+            <p>Sufinancirano sredstvima programa Europske unije Erasmus+.</p>
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy; 2024 Ekonomska škola Šibenik. Sva prava pridržana.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
